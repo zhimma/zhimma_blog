@@ -13,11 +13,32 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'avatar'=> $faker->imageUrl(),
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
+        'confirm_code' => 0
+
+
+    ];
+});
+$factory->define(\App\Models\Category::class,function(Faker $faker){
+    return [
+        'parent_id' => $faker->randomElement([0,1,2,3]),
+        'name' => $faker->imageUrl(),
+        'description'=>$faker->realText(),
+        'sort'=>$faker->randomElement([0,1,2,3,5,6,7,8,9]),
+    ];
+});
+$factory->define(\App\Models\Article::class,function(Faker $faker){
+    $category = \App\Models\Category::pluck('id')->toArray();
+    return [
+        'img_url' => $faker->imageUrl(),
+        'category_id' => $faker->randomElement($category),
+        'title' => $faker->sentence(),
+        'content'=>$faker->realText()
     ];
 });
