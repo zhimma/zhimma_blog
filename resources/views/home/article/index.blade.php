@@ -17,7 +17,7 @@
 
                 <div class="entry-img">
                     <a href="{{ route('home.article.show',['id' => $article->id]) }}">
-                        <img src="{{ $article->img_url }}" alt="">
+                        {{--<img src="{{ $article->img_url }}" alt="">--}}
                     </a>
                 </div>
 

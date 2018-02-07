@@ -171,8 +171,8 @@ a:focus {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", serif;
-  font-size: 13px;
+  font-family: "宋体", sans-serif;
+  font-size: 14px;
   line-height: 1.5;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
@@ -550,7 +550,7 @@ ul {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   margin-top: 0;
   color: #000000;
   font-weight: 400;
@@ -671,7 +671,7 @@ p {
 }
 
 .subheading {
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   font-style: italic;
   font-size: 17px;
   line-height: 32px;
@@ -760,7 +760,7 @@ p {
 
 .underline-link {
   display: inline-block;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -848,7 +848,7 @@ blockquote {
 blockquote > p {
   font-size: 18px;
   line-height: 30px;
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   color: #999999;
   margin-bottom: 5px !important;
   position: relative;
@@ -861,7 +861,7 @@ blockquote > span {
 }
 
 .dropcap {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
 }
 
 .dropcap.style-1 {
@@ -979,7 +979,7 @@ blockquote > span {
 }
 
 .navbar-nav > li > a {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -1062,7 +1062,7 @@ blockquote > span {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   border-bottom: 1px solid #363636;
   font-weight: 400;
   text-transform: uppercase;
@@ -1273,7 +1273,7 @@ a.nav-search {
   border-left: none;
   border-right: none;
   border-bottom: 2px solid #eaeaea;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-size: 38px;
   line-height: 2;
   margin-bottom: 0;
@@ -1532,7 +1532,7 @@ header.transparent .navbar-toggle .icon-bar {
   background-color: #fff;
   padding: 7px 18px;
   font-size: 10px;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-style: normal;
   color: #c0945c;
   text-transform: uppercase;
@@ -1552,7 +1552,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 #main-slider .entry-date {
   font-size: 11px;
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   font-style: italic;
   color: #999999;
 }
@@ -1730,7 +1730,7 @@ header.transparent .navbar-toggle .icon-bar {
 #tweets .timePosted {
   font-size: 10px;
   font-style: italic;
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   color: #999999;
 }
 
@@ -1873,7 +1873,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .entry-category {
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   font-style: italic;
   font-size: 13px;
   color: #c0945c;
@@ -1956,8 +1956,8 @@ header.transparent .navbar-toggle .icon-bar {
 .entry-meta li {
   color: #999999;
   font-size: 11px;
-  font-family: "Libre Baskerville", serif;
-  font-style: italic;
+  font-family: "宋体", sans-serif;
+  /*font-style: italic;*/
   display: inline-block;
   margin-right: 20px;
   line-height: 30px;
@@ -1968,7 +1968,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .entry-meta li a {
-  color: #999999;
+  color: #993333;
 }
 
 .entry-meta li a:hover {
@@ -1995,7 +1995,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .read-more {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 10px;
@@ -2046,7 +2046,7 @@ header.transparent .navbar-toggle .icon-bar {
   position: absolute;
   left: -75px;
   margin-top: -15px;
-  font-family: "Merriweather";
+  font-family: "宋体", sans-serif;
   font-style: normal;
   color: #dedede;
 }
@@ -2064,7 +2064,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .entry .blockquote-style-1 span {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   color: #343434;
   font-size: 16px;
   margin-top: 15px;
@@ -2091,7 +2091,7 @@ header.transparent .navbar-toggle .icon-bar {
 .pagination a,
 .pagination span {
   background-color: #f8f8f8;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-size: 14px;
   display: inline-block;
   width: 40px;
@@ -2253,7 +2253,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .entry-list ul > li .entry-title {
-  font-family: "Open Sans", serif;
+  font-family: "宋体", sans-serif;
   font-size: 13px;
   text-transform: none;
   letter-spacing: normal;
@@ -2291,7 +2291,7 @@ header.transparent .navbar-toggle .icon-bar {
   line-height: .9;
   margin: 2px;
   font-size: 9px;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #8f8f8f;
@@ -2375,7 +2375,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .related-posts .entry-title {
-  font-family: "Open Sans", serif;
+  font-family: "宋体", sans-serif;
   font-size: 13px;
   text-transform: none;
   letter-spacing: normal;
@@ -2412,7 +2412,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .entry-comments .comment-author {
   color: #000000;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-weight: 600;
   font-size: 14px;
 }
@@ -2424,7 +2424,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .entry-comments .comment-date {
   font-size: 11px;
-  font-family: "Libre Baskerville", serif;
+  font-family: "宋体", sans-serif;
   font-style: italic;
   color: #999999;
 }
@@ -2541,7 +2541,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .portfolio-filter a {
   display: inline-block;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   margin: 0 15px;
   color: #000000;
   text-decoration: none;
@@ -2904,7 +2904,7 @@ header.transparent .navbar-toggle .icon-bar {
   display: table-cell;
   line-height: 28px;
   font-size: 14px;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
 }
 
 .product_meta .detail-label {
@@ -2913,7 +2913,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .socials-share > span {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   color: #000000;
   display: inline-block;
   margin-right: 15px;
@@ -2937,7 +2937,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .project-nav li a {
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   color: #000000;
 }
 
@@ -3522,13 +3522,13 @@ header.transparent .navbar-toggle .icon-bar {
   line-height: 1;
   margin-bottom: 20px;
   color: #000000;
-  font-family: "Open Sans", serif;
+  font-family: "宋体", sans-serif;
   font-weight: normal;
 }
 
 .pricing-price {
   padding-bottom: 35px;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-weight: 700;
   font-size: 70px;
   color: #000000;
@@ -3558,7 +3558,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .pricing-features li {
   padding: 11px 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
 }
 
 .pricing-features li i {
@@ -3592,7 +3592,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .progress-bars h6 {
   color: #000000;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-size: 13px;
   margin-top: 0;
   margin-bottom: 12px;
@@ -3603,7 +3603,7 @@ header.transparent .navbar-toggle .icon-bar {
 
 .progress-bars h6 span {
   color: #000000;
-  font-family: "Raleway", sans-serif;
+  font-family: "宋体", sans-serif;
   font-size: 14px;
   float: right;
   font-weight: normal;
