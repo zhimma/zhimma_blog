@@ -119,10 +119,14 @@
 
                         <!-- Comments -->
                         <div class="entry-comments mt-20" id="comments">
+
+
+
                             <div class="heading-lines mb-30">
                                 <h3 class="heading small">{{ $article->comments_count }} 回复</h3>
                             </div>
-
+                            @inject('commentsPresenter','App\Repositories\Presenter\CommentsPresenter')
+                            {!! $commentsPresenter->comments($article->comments->toArray()) !!}
                             <ul class="comment-list">
                                 @foreach(list_to_tree_key($article->comments->toArray(),'id','parent_id') as $comment)
                                     <li>
