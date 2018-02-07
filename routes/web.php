@@ -15,4 +15,6 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::resource('article', 'ArticleController');
     Route::get('contact', 'ContactController@index')->name('contact');
     Route::get('about', 'AboutController@index')->name('about');
+    Route::resource('tag', 'TagController');
+    Route::resource('category', 'categoryController');
 });

@@ -9,15 +9,15 @@
             <article class="entry-item large-post">
 
                 <div class="entry-header">
-                    {{--<a href="#" class="entry-category">{{ $article->created_at }}</a>--}}
+                    <a href="#" class="entry-category">{{ $article->created_at }}</a>
                     <h2 class="entry-title">
                         <a href="{{ route('home.article.show',['id' => $article->id]) }}">{{ $article->title }}</a>
                     </h2>
                 </div>
 
                 <div class="entry-img">
-                    <a href="blog-single.html">
-                        <img src="{{ asset('home/img/featured_post.jpg') }}" alt="">
+                    <a href="{{ route('home.article.show',['id' => $article->id]) }}">
+                        <img src="{{ $article->img_url }}" alt="">
                     </a>
                 </div>
 
@@ -34,10 +34,17 @@
                         <div class="entry-meta-wrap clearfix">
                             <ul class="entry-meta">
                                 <li class="entry-date">
-                                    <a href="#">August 30, 2016</a>
+                                    <span>分类：<a href="{{ route('home.category.index',['id'=>$article->category->id]) }}">{{ $article->category->name }}</a></span>
                                 </li>
+                                {{--<li class="entry-date">
+                                    <span>标签：
+                                        @foreach($article->tags as $value)
+                                            <a href="{{ route('home.tag.index',['id'=>$value->id]) }}">{{ $value->name }}</a>
+                                        @endforeach
+                                    </span>
+                                </li>--}}
                                 <li class="entry-comments">
-                                    <a href="blog-single.html">2 Comments</a>
+                                    <span>评论：<a href="{{ route('home.article.show',['id' => $article->id.'#comments']) }}">{{ $article->comments_count }} 回复</a></span>
                                 </li>
                             </ul>
 

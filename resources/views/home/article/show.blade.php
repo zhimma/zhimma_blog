@@ -26,18 +26,18 @@
 
                         <!-- tags -->
                         <div class="entry-tags tags mb-50 mt-40 clearfix">
-                            @foreach($article->tags->pluck('name') as $tag)
-                            <a href="#">{{ $tag }}</a>
+                            @foreach($article->tags as $value)
+                                <a href="{{ route('home.tag.index',['id'=>$value->id]) }}">{{ $value->name }}</a>
                             @endforeach
                         </div>
 
                         <div class="entry-meta-wrap clearfix">
                             <ul class="entry-meta">
                                 <li class="entry-date">
-                                    <a href="#">August 30, 2016</a>
+                                    <span>分类：<a href="{{ route('home.category.index',['id'=>$article->category->id]) }}">{{ $article->category->name }}</a></span>
                                 </li>
                                 <li class="entry-comments">
-                                    <a href="blog-single.html">2 Comments</a>
+                                    <span>评论：<a href="{{ route('home.article.show',['id' => $article->id.'#comments']) }}">{{ $article->comments_count }} 回复</a></span>
                                 </li>
                             </ul>
 
@@ -47,23 +47,6 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                                 <a href="#"><i class="fa fa-heart"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- entry author -->
-                        <div class="entry-author-box clearfix">
-                            <img src="img/author.jpg" class="author-img" alt="img">
-                            <div class="author-info">
-                                <h6 class="author-name"><a href="#">Alexis Ran</a></h6>
-                                <p class="mb-0">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quisma bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus itaet.
-                                </p>
-                                <div class="social-icons">
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                </div>
                             </div>
                         </div>
 
@@ -135,51 +118,42 @@
                         </div>
 
                         <!-- Comments -->
-                        <div class="entry-comments mt-20">
+                        <div class="entry-comments mt-20" id="comments">
                             <div class="heading-lines mb-30">
-                                <h3 class="heading small">3 comments</h3>
+                                <h3 class="heading small">{{ $article->comments_count }} 回复</h3>
                             </div>
 
                             <ul class="comment-list">
-                                <li>
-                                    <div class="comment-body">
-                                        <img src="img/comment_1.jpg" class="comment-avatar" alt="">
-                                        <div class="comment-content">
-                                            <span class="comment-author">Joeby Ragpa</span>
-                                            <span class="comment-date">August 6, 2016 at 12:48 pm</span>
-                                            <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                            <a href="#">Reply</a>
-                                        </div>
-                                    </div>
-
-                                    <ul class="comment-reply">
-                                        <li>
-                                            <div class="comment-body">
-                                                <img src="img/comment_2.jpg" class="comment-avatar" alt="">
-                                                <div class="comment-content">
-                                                    <span class="comment-author">Alexander Samokhin</span>
-                                                    <span class="comment-date">August 6, 2016 at 12:48 pm</span>
-                                                    <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                                    <a href="#">Reply</a>
-                                                </div>
+                                @foreach(list_to_tree_key($article->comments->toArray(),'id','parent_id') as $comment)
+                                    <li>
+                                        <div class="comment-body">
+                                            <img src="img/comment_1.jpg" class="comment-avatar" alt="">
+                                            <div class="comment-content">
+                                                <span class="comment-author">{{ $comment['user_id'] }}</span>
+                                                <span class="comment-date">{{ $comment['created_at'] }}</span>
+                                                <p>{{ $comment['content'] }}</p>
+                                                <a href="#">回复</a>
                                             </div>
-                                        </li> <!-- end reply comment -->
-                                    </ul>
-
-                                </li> <!-- end 1-2 comment -->
-
-                                <li>
-                                    <div class="comment-body">
-                                        <img src="img/comment_3.jpg" class="comment-avatar" alt="">
-                                        <div class="comment-content">
-                                            <span class="comment-author">Christopher Robins</span>
-                                            <span class="comment-date">May 6, 2014 at 12:48 pm</span>
-                                            <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                            <a href="#">Reply</a>
                                         </div>
-                                    </div>
-                                </li> <!-- end 3 comment -->
-
+                                        @if(!empty($comment['_child']))
+                                            <ul class="comment-reply">
+                                                @foreach($comment['_child'] as $var)
+                                                    <li>
+                                                        <div class="comment-body">
+                                                            <img src="img/comment_2.jpg" class="comment-avatar" alt="">
+                                                            <div class="comment-content">
+                                                                <span class="comment-author">{{ $var['user_id'] }}</span>
+                                                                <span class="comment-date">{{ $var['created_at'] }}</span>
+                                                                <p>{{ $var['content'] }}</p>
+                                                                <a href="#">回复</a>
+                                                            </div>
+                                                        </div>
+                                                    </li> <!-- end reply comment -->
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
                             </ul>
                         </div> <!--  end comments -->
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use function Psy\debug;
 
 class ArticleController extends Controller
 {
@@ -15,8 +16,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
-
+        $articles = Article::withCount('comments')->get();
+        foreach ($articles as $article) {
+            $article->comments;
+            $article->tags;
+            $article->category;
+        }
         return view('home/article/index', compact('articles'));
     }
 
@@ -51,8 +56,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::findOrFail($id);
-
+        $article = Article::withCount('comments')->findOrFail($id);
+        $article->comments;
+        $article->tags;
         return view('home.article.show', compact('article'));
     }
 

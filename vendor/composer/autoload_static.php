@@ -17,6 +17,7 @@ class ComposerStaticInit00407a2305870ffe80d57eee774d9082
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        'd21d43db5f6e840ee7b10744ec7fdf66' => __DIR__ . '/../..' . '/app/Helpers/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -346,9 +347,11 @@ class ComposerStaticInit00407a2305870ffe80d57eee774d9082
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Home\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/AboutController.php',
         'App\\Http\\Controllers\\Home\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/ArticleController.php',
+        'App\\Http\\Controllers\\Home\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/CategoryController.php',
         'App\\Http\\Controllers\\Home\\CommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/CommentController.php',
         'App\\Http\\Controllers\\Home\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/ContactController.php',
         'App\\Http\\Controllers\\Home\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/IndexController.php',
+        'App\\Http\\Controllers\\Home\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/TagController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
