@@ -16,12 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::withCount('comments')->get();
-        foreach ($articles as $article) {
-            $article->comments;
-            $article->tags;
-            $article->category;
-        }
+        $articles = Article::withCount('comments')->with(['comments','tags','category'])->get();
         return view('home/article/index', compact('articles'));
     }
 
@@ -56,9 +51,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $article = Article::withCount('comments')->findOrFail($id);
-        $article->comments;
-        $article->tags;
+        $article = Article::withCount('comments')->with(['comments.user','tags'])->findOrFail($id);
         return view('home.article.show', compact('article'));
     }
 

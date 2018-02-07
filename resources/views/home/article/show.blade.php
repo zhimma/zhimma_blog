@@ -129,7 +129,7 @@
                                         <div class="comment-body">
                                             <img src="img/comment_1.jpg" class="comment-avatar" alt="">
                                             <div class="comment-content">
-                                                <span class="comment-author">{{ $comment['user_id'] }}</span>
+                                                <span class="comment-author">{{ $comment['user']['name'] }}</span>
                                                 <span class="comment-date">{{ $comment['created_at'] }}</span>
                                                 <p>{{ $comment['content'] }}</p>
                                                 <a href="#">回复</a>
@@ -142,7 +142,7 @@
                                                         <div class="comment-body">
                                                             <img src="img/comment_2.jpg" class="comment-avatar" alt="">
                                                             <div class="comment-content">
-                                                                <span class="comment-author">{{ $var['user_id'] }}</span>
+                                                                <span class="comment-author">{{ $var['user']['name'] }}</span>
                                                                 <span class="comment-date">{{ $var['created_at'] }}</span>
                                                                 <p>{{ $var['content'] }}</p>
                                                                 <a href="#">回复</a>
