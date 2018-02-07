@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','Home\IndexController@index');
-Route::resource('article','Home\ArticleController');
-Route::get('contact','Home\ContactController@index');
-Route::get('about','Home\AboutController@index');
+Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
+    Route::get('/', 'IndexController@index')->name('index');
+    Route::resource('article', 'ArticleController');
+    Route::get('contact', 'ContactController@index')->name('contact');
+    Route::get('about', 'AboutController@index')->name('about');
+});

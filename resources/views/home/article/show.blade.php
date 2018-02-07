@@ -8,8 +8,8 @@
         <article class="entry-item large-post">
 
             <div class="entry-header">
-                <a href="#" class="entry-category">Lifestyle</a>
-                <h1 class="entry-title">Natural Summer</h1>
+                {{--<a href="#" class="entry-category">Lifestyle</a>--}}
+                <h1 class="entry-title">{{ $article->title }}</h1>
             </div>
 
             <div class="entry-img">
@@ -21,31 +21,14 @@
 
                     <div class="entry-content">
                         <div class="article">
-                            <p>We possess within us two minds. So far I have written only of the conscious mind. It's the fastest-funded project and also the most funded - by far. We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged and changed into their physical equivalent.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum rutrum rutrum. Quisque vel commodo quam, eu iaculis eros. Integer id efficitur metus. Quisque condimentum ornare augue, eu tempor ex accumsan iaculis. Duis rutrum ante eget tortor vulputate, ac auctor enim mo lestie. Nulla tincidunt felis diam, id porta mi porttitor a. Vivamus in posuere lorem. Phasellus tempus lacinia quam at convallis. Aliquam vulputate aliquet orci, sed placerat metus faucibus eget. Nunc sit amet pulvinar neque. Donec eget enim a sem venenatis pulvinar. Mauris massa nisl, port.</p>
-
-                            <blockquote>
-                                <p>
-                                    Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.
-                                </p>
-                                <span>Bernard M. Baruch</span>
-                            </blockquote>
-
-                            <p>Our Theme is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine. We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally staggers the imagination.</p>
-
-                            <h5 class="uppercase">The best flexible theme on themeforest</h5>
-
-                            <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged. And finally the subconscious is the mechanism through which thought impulses which are repeated regularly with feeling and emotion are quickened, charged and changed into their physical equivalent.</p>
+                            {{ $article->content }}
                         </div>
 
                         <!-- tags -->
                         <div class="entry-tags tags mb-50 mt-40 clearfix">
-                            <a href="#">Creative</a>
-                            <a href="#">Responsive</a>
-                            <a href="#">Ecommerce</a>
-                            <a href="#">Theme</a>
-                            <a href="#">Clean</a>
+                            @foreach($article->tags->pluck('name') as $tag)
+                            <a href="#">{{ $tag }}</a>
+                            @endforeach
                         </div>
 
                         <div class="entry-meta-wrap clearfix">
