@@ -24,10 +24,11 @@ class CommentsPresenter
                          <a href="#">回复</a>
                      </div>
                  </div>';
-            $html .= $this->loop($comment['_child'], $comment['id']);
+            if (!empty($comment['_child'])) {
+                $html .= $this->loop($comment['_child']);
+            }
             $html .= '</li>';
         }
-        dd($html);
 
         return $html;
 
@@ -60,12 +61,13 @@ class CommentsPresenter
              @endif
          </li>*/
     }
-
-    public function loop($comments, $id = 0)
+    public function loop($comments)
     {
         $html = '';
-        if (!empty($comments)) {
-            foreach ($comments as $comment) {
+        foreach ($comments as $comment) {
+            if (!empty($comment['_child'])) {
+                $html .= $this->loop($comment['_child']);
+            } else {
                 $html .= '<ul class="comment-reply">
                      <li>
                          <div class="comment-body">
@@ -78,9 +80,10 @@ class CommentsPresenter
                              </div>
                          </div>
                      </li> 
-                 </ul>';
+                </ul>';
             }
         }
+
         return $html;
     }
 }
