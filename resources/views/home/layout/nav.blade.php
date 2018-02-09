@@ -65,11 +65,7 @@
                 <div class="side-menu right mobile-left-align">
                     <div class="nav-inner menu-socials social-icons">
                         <div class="right">
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            <a href="#"><i class="fa fa-heart"></i></a>
+                            sign in
                         </div>
                     </div>
                 </div> <!-- end side menu -->

@@ -1,5 +1,4 @@
 @extends('home.layout.app')
-
 @section('content')
     <div class="row">
 
@@ -42,11 +41,7 @@
                             </ul>
 
                             <div class="social-icons right">
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fa fa-heart"></i></a>
+                                <div class="social-share" data-sites="qzone, qq, weibo,wechat, douban" data-wechat-qrcode-title="打开微信扫一扫"></div>
                             </div>
                         </div>
 
@@ -125,36 +120,6 @@
                             @inject('commentsPresenter','App\Repositories\Presenter\CommentsPresenter')
                             <ul class="comment-list">
                             {!! $commentsPresenter->comments($article->comments->toArray()) !!}
-                                {{--@foreach(list_to_tree_key($article->comments->toArray(),'id','parent_id') as $comment)--}}
-                                    {{--<li>--}}
-                                        {{--<div class="comment-body">--}}
-                                            {{--<img src="img/comment_1.jpg" class="comment-avatar" alt="">--}}
-                                            {{--<div class="comment-content">--}}
-                                                {{--<span class="comment-author">{{ $comment['user']['name'] }}</span>--}}
-                                                {{--<span class="comment-date">{{ $comment['created_at'] }}</span>--}}
-                                                {{--<p>{{ $comment['content'] }}</p>--}}
-                                                {{--<a href="#">回复</a>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--@if(!empty($comment['_child']))--}}
-                                            {{--<ul class="comment-reply">--}}
-                                                {{--@foreach($comment['_child'] as $var)--}}
-                                                    {{--<li>--}}
-                                                        {{--<div class="comment-body">--}}
-                                                            {{--<img src="img/comment_2.jpg" class="comment-avatar" alt="">--}}
-                                                            {{--<div class="comment-content">--}}
-                                                                {{--<span class="comment-author">{{ $var['user']['name'] }}</span>--}}
-                                                                {{--<span class="comment-date">{{ $var['created_at'] }}</span>--}}
-                                                                {{--<p>{{ $var['content'] }}</p>--}}
-                                                                {{--<a href="#">回复</a>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                    {{--</li> <!-- end reply comment -->--}}
-                                                {{--@endforeach--}}
-                                            {{--</ul>--}}
-                                        {{--@endif--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
                             </ul>
                         </div> <!--  end comments -->
 

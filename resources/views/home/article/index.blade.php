@@ -49,21 +49,7 @@
                             </ul>
 
                             <div class="social-icons right">
-                                <a href="#">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-pinterest-p"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-heart"></i>
-                                </a>
+                                    <div class="social-share" data-sites="qzone, qq, weibo,wechat, douban" data-wechat-qrcode-title="打开微信扫一扫"></div>
                             </div>
                         </div>
 

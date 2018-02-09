@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}" />
     <link rel="stylesheet" href="{{ asset('home/css/spacings.css') }}" />
     <link rel="stylesheet" href="{{ asset('home/css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('plugins/share-js/dist/css/share.min.css') }}" />
 
 </head>
 
@@ -101,6 +102,7 @@
 <script type="text/javascript" src="{{ asset('home/js/plugins.js') }}"></script>
 <!--<script type="text/javascript" src="js/twitterFetcher_min.js"></script>-->
 <script type="text/javascript" src="{{ asset('home/js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('plugins/share-js/dist/js/social-share.min.js') }}"></script>
 
 <!-- Instafeed -->
 
