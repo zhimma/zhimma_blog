@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::withCount('comments')->with(['comments','tags','category'])->get();
+        $articles = Article::withCount('comments')->with(['comments','tags','category'])->paginate(5);
         return view('home/article/index', compact('articles'));
     }
 

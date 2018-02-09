@@ -73,7 +73,7 @@
         @endforeach
         <div class="row mt-20">
             <div class="col-md-12 text-center">
-                <a href="#" class="btn btn-md btn-stroke" id="load-more">Load More</a>
+                    {{ $articles->links() }}
             </div>
         </div>
     </div> <!-- end col -->

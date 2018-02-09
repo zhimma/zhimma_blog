@@ -2132,16 +2132,41 @@ header.transparent .navbar-toggle .icon-bar {
   color: #c0945c;
 }
 
-.pagination a:first-child {
+/*.pagination a:first-child {
   margin-right: 20px;
+}*/
+
+/*.pagination a:last-child {
+  margin-left: 20px;
+}*/
+.pagination>li>a,
+.pagination>li>span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #999999;
+  background-color: #c0945c;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+}
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+  z-index: 3;
+  color: #fff;
+  background-color: #CCCCCC;
+  border-color: gray;
+  cursor: default;
 }
 
-.pagination a:last-child {
-  margin-left: 20px;
-}
 
 .pagination .current {
-  color: #fff;
+  color: #993333;
   background-color: #171717;
 }
 

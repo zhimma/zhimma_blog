@@ -9,12 +9,13 @@ namespace App\Repositories\Presenter;
  */
 class CommentsPresenter
 {
-    public function comments($comments = [], $pid = 0)
+    public function comments($comments = [])
     {
         $html = '';
-        $comments = list_to_tree_key($comments, 'id', 'parent_id');
-        foreach ($comments as $comment) {
-            $html .= '<li>
+        if (!empty($comments)) {
+            $comments = list_to_tree_key($comments, 'id', 'parent_id');
+            foreach ($comments as $comment) {
+                $html .= '<li>
                  <div class="comment-body">
                      <img src="img/comment_1.jpg" class="comment-avatar" alt="">
                      <div class="comment-content">
@@ -24,66 +25,46 @@ class CommentsPresenter
                          <a href="#">回复</a>
                      </div>
                  </div>';
-            if (!empty($comment['_child'])) {
-                $html .= $this->loop($comment['_child']);
+                if (!empty($comment['_child'])) {
+                    $html .= $this->loop($comment['_child']);
+                }
+                $html .= '</li>';
             }
-            $html .= '</li>';
         }
 
         return $html;
-
-        /* <li>
-             <div class="comment-body">
-                 <img src="img/comment_1.jpg" class="comment-avatar" alt="">
-                 <div class="comment-content">
-                     <span class="comment-author">{{ $comment[\'user\'][\'name\'] }}</span>
-                     <span class="comment-date">{{ $comment[\'created_at\'] }}</span>
-                     <p>{{ $comment[\'content\'] }}</p>
-                     <a href="#">回复</a>
-                 </div>
-             </div>
-             @if(!empty($comment[\'_child\']))
-                 <ul class="comment-reply">
-                     @foreach($comment[\'_child\'] as $var)
-                         <li>
-                             <div class="comment-body">
-                                 <img src="img/comment_2.jpg" class="comment-avatar" alt="">
-                                 <div class="comment-content">
-                                     <span class="comment-author">{{ $var[\'user\'][\'name\'] }}</span>
-                                     <span class="comment-date">{{ $var[\'created_at\'] }}</span>
-                                     <p>{{ $var[\'content\'] }}</p>
-                                     <a href="#">回复</a>
-                                 </div>
-                             </div>
-                         </li> <!-- end reply comment -->
-                     @endforeach
-                 </ul>
-             @endif
-         </li>*/
     }
+
     public function loop($comments)
     {
-        $html = '';
+        $html = '<ul class="comment-reply"><li>';
         foreach ($comments as $comment) {
             if (!empty($comment['_child'])) {
+                $html .= '<div class="comment-body">
+                             <img src="img/comment_2.jpg" class="comment-avatar" alt="">
+                             <div class="comment-content">
+                                 <span class="comment-author">' . $comment['created_at'] . '</span>
+                                 <span class="comment-date">' . $comment['created_at'] . '</span>
+                                 <p>' . $comment['content'] . '</p>
+                                 <a href="#">回复'.$comment['id'].'</a>
+                             </div>
+                         </div>';
                 $html .= $this->loop($comment['_child']);
             } else {
-                $html .= '<ul class="comment-reply">
-                     <li>
+                $html .= '
                          <div class="comment-body">
                              <img src="img/comment_2.jpg" class="comment-avatar" alt="">
                              <div class="comment-content">
                                  <span class="comment-author">' . $comment['created_at'] . '</span>
                                  <span class="comment-date">' . $comment['created_at'] . '</span>
                                  <p>' . $comment['content'] . '</p>
-                                 <a href="#">回复</a>
+                                 <a href="#">回复'.$comment['id'].'</a>
                              </div>
                          </div>
-                     </li> 
-                </ul>';
+                     ';
             }
         }
 
-        return $html;
+        return $html . '</li></ul>';
     }
 }
