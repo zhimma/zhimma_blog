@@ -1,7 +1,7 @@
 <aside class="col-md-3 sidebar">
     <div class="widget about-blog text-center">
         <div class="heading-lines">
-            <h3 class="widget-title heading">About Me</h3>
+            <h3 class="widget-title heading">关于我</h3>
         </div>
         <img src="img/about_me.jpg" alt="">
         <p class="mb-20 mt-30">A personal diary of wanderlust and an overflowing wardrobe. Live with passion.</p>
@@ -9,7 +9,7 @@
     </div>
 
     <!-- Newsletter -->
-    <div class="widget newsletter">
+    {{--<div class="widget newsletter">
         <div class="heading-lines">
             <h3 class="widget-title heading">Newsletter</h3>
         </div>
@@ -17,37 +17,19 @@
             <input type="email" placeholder="Your email address">
         </form>
         <input type="submit" value="Subscribe" id="submit-button" class="btn btn-lg btn-color">
-    </div>
-
-    <!-- Instagram Feed Grid -->
-    <div class="widget instagram">
-        <div class="heading-lines">
-            <h3 class="widget-title heading">Instagram</h3>
-        </div>
-        <ul id="instafeed-grid"></ul>
-    </div>
+    </div>--}}
 
     <!-- Categories -->
     <div class="widget categories">
         <div class="heading-lines">
-            <h3 class="widget-title heading">Categories</h3>
+            <h3 class="widget-title heading">分类</h3>
         </div>
         <ul class="list-dividers">
-            <li>
-                <a href="#">Lifestyle</a><span>(8)</span>
-            </li>
-            <li>
-                <a href="#">Travel</a><span>(14)</span>
-            </li>
-            <li>
-                <a href="#">Beauty</a><span>(5)</span>
-            </li>
-            <li>
-                <a href="#">Music</a><span>(3)</span>
-            </li>
-            <li>
-                <a href="#">Food</a><span>(7)</span>
-            </li>
+            @foreach($categories as $category)
+                <li>
+                    <a href="{{ route('home.category.index',['id' => $category->id]) }}">{{ $category->name }}</a><span>({{ $category->articles_count }})</span>
+                </li>
+            @endforeach
         </ul>
     </div>
 
@@ -61,7 +43,7 @@
     <!-- Recent Posts -->
     <div class="widget recent-posts">
         <div class="heading-lines">
-            <h3 class="widget-title heading">Recent Posts</h3>
+            <h3 class="widget-title heading">最新文章</h3>
         </div>
         <div class="entry-list w-thumbs">
             <ul class="posts-list list-dividers">
@@ -140,7 +122,7 @@
     <!-- Latest Tweets -->
     <div class="widget categories">
         <div class="heading-lines">
-            <h3 class="widget-title heading">Latest Tweets</h3>
+            <h3 class="widget-title heading">联系我</h3>
         </div>
         <div class="twitter-slider text-center">
             <i class="fa fa-twitter twitter-icon"></i>

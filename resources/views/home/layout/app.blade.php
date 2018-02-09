@@ -43,8 +43,8 @@
         <div class="container">
             <div class="logo-container text-center">
                 <div class="logo-wrap">
-                    <a href="index.html">
-                        <img class="logo-dark" src="{{ asset('home/img/logo_dark_big.png') }}" alt="logo">
+                    <a href="/">
+                        <img class="logo-dark" src="{{ asset('home/img/imagebg.jpg') }}" alt="logo">
                     </a>
                 </div>
             </div>

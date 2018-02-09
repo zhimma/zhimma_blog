@@ -42,7 +42,6 @@
 
                 <div class="col-md-12 nav-wrap">
                     <div class="collapse navbar-collapse text-center" id="navbar-collapse">
-
                         <ul class="nav navbar-nav">
                             <li><a href="/">主页</a></li>
                             <li><a href="/article">文章</a></li>
@@ -56,20 +55,25 @@
                                     </button>
                                 </form>
                             </li>
+                            <ul class="nav navbar-nav pull-right">
+                                <li><a href="#">Link</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
 
                         </ul> <!-- end menu -->
+
+
                     </div> <!-- end collapse -->
                 </div> <!-- end col -->
-
-                <!-- side menu -->
-                <div class="side-menu right mobile-left-align">
-                    <div class="nav-inner menu-socials social-icons">
-                        <div class="right">
-                            sign in
-                        </div>
-                    </div>
-                </div> <!-- end side menu -->
-
             </div> <!-- end row -->
         </div> <!-- end container -->
     </div> <!-- end navigation -->
