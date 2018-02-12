@@ -41,8 +41,8 @@
                 </div> <!-- end side menu -->
 
                 <div class="col-md-12 nav-wrap">
-                    <div class="collapse navbar-collapse text-center" id="navbar-collapse">
-                        <ul class="nav navbar-nav">
+                    <div class="collapse navbar-collapse"  id="navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
                             <li><a href="/">主页</a></li>
                             <li><a href="/article">文章</a></li>
                             <li><a href="/about">关于</a></li>
@@ -55,25 +55,29 @@
                                     </button>
                                 </form>
                             </li>
-                            <ul class="nav navbar-nav pull-right">
-                                <li><a href="#">Link</a></li>
+                        </ul> <!-- end menu -->
+                        <ul class="nav navbar-nav navbar-right">
+
+                            @if(Auth::check())
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">修改个人信息</a></li>
+                                        <li><a href="#">退出登录</a></li>
                                     </ul>
                                 </li>
-                            </ul>
+                                @else
+                                <li><a href="#">注册</a></li>
+                                <li><a href="#">登录</a></li>
+                            @endif
 
-                        </ul> <!-- end menu -->
-
-
+                        </ul>
                     </div> <!-- end collapse -->
                 </div> <!-- end col -->
+
+
+
+
             </div> <!-- end row -->
         </div> <!-- end container -->
     </div> <!-- end navigation -->

@@ -3,12 +3,33 @@
 namespace App\Http\Controllers\Home;
 
 use App\Models\Article;
+use App\Repositories\Eloquent\ArticleRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function Psy\debug;
 
+/**
+ *
+ *
+ * @package App\Http\Controllers\Home
+ */
 class ArticleController extends Controller
 {
+    /**
+     * @var ArticleRepository
+     */
+    protected $article;
+
+    /**
+     * ArticleController constructor.
+     *
+     * @param ArticleRepository $article
+     */
+    public function __construct(ArticleRepository $article)
+    {
+        $this->article = $article;
+    }
+
     /**
      * Display a listing of the resource.
      *
