@@ -12,6 +12,10 @@
 */
 Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::get('/', 'IndexController@index')->name('index');
+    Route::get('login','UserController@login')->name('login');
+    Route::post('login','UserController@sign')->name('sign');
+    Route::get('register','UserController@register')->name('register');
+    Route::post('register','UserController@store')->name('store');
     Route::resource('article', 'ArticleController');
     Route::get('contact', 'ContactController@index')->name('contact');
     Route::get('about', 'AboutController@index')->name('about');

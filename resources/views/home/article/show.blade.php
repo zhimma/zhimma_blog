@@ -122,31 +122,35 @@
                             {!! $commentsPresenter->comments($article->comments->toArray()) !!}
                             </ul>
                         </div> <!--  end comments -->
-
-                        <!-- Leave a Comment -->
-                        <div class="comment-form mt-60">
-                            <div class="heading-lines mb-30">
-                                <h3 class="heading small">Leave a Comment</h3>
-                            </div>
-                            <form id="form" method="post" action="#">
-                                <div class="row row-16">
-                                    <div class="col-md-4">
-                                        <input name="name" id="name" type="text" placeholder="Name*">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input name="mail" id="mail" type="email" placeholder="E-mail*">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input name="Website" id="Website" type="text" placeholder="Website">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <textarea name="comment" id="comment" placeholder="Comment" rows="8"></textarea>
-                                    </div>
+                        @if(!auth()->check())
+                            <div class="comment-form mt-60">
+                                <div class="heading-lines mb-30">
+                                    <h3 class="heading small">留言评论</h3>
                                 </div>
+                                <form id="form" method="post" action="#">
+                                    <div class="row row-16">
+                                        {{--<div class="col-md-4">
+                                            <input name="name" id="name" type="text" placeholder="姓名*">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input name="mail" id="mail" type="email" placeholder="联系邮箱*">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input name="Website" id="Website" type="text" placeholder="个人网站">
+                                        </div>--}}
+                                        <div class="col-md-12">
+                                            <textarea name="comment" id="comment" placeholder="" rows="8"></textarea>
+                                        </div>
+                                    </div>
 
-                                <input type="submit" class="btn btn-lg btn-color mt-20" value="Post Comment" id="submit-message">
-                            </form>
-                        </div>
+                                    <input type="submit" class="btn btn-lg btn-color mt-20" value="留言评论" id="submit-message">
+                                </form>
+                            </div>
+                            @else
+                            <a href="{{--{{ route('home.login') }}--}}" class="btn btn-lg btn-color mt-20">登录并留言评论</a>
+                        @endif
+                        <!-- Leave a Comment -->
+
 
                     </div>
                 </div>

@@ -67,8 +67,12 @@
                                     </ul>
                                 </li>
                                 @else
-                                <li><a href="#">注册</a></li>
-                                <li><a href="#">登录</a></li>
+                                @if(Route::currentRouteName() != 'home.register')
+                                    <li><a href="{{ route('home.register') }}">注册</a></li>
+                                @endif
+                                @if(Route::currentRouteName() != 'home.login')
+                                    <li><a href="{{ route('home.login') }}">登录</a></li>
+                                @endif
                             @endif
 
                         </ul>

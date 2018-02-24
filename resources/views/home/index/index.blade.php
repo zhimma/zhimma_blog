@@ -1,5 +1,7 @@
 @extends('home.layout.app')
-
+@section('carousel')
+    @include('home.layout.carousel')
+@endsection
 @section('content')
     <!-- post content -->
     <div class="col-md-12 post-content mb-50">
