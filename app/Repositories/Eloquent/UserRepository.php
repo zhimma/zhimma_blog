@@ -43,7 +43,6 @@ class UserRepository
     {
 
         $this->model->fill($data);
-        $this->model->password = bcrypt($data['password']);
         if ($this->model->save()) {
             return true;
         } else {

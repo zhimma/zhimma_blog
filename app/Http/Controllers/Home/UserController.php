@@ -6,7 +6,9 @@ use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\UserRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Naux\Mail\SendCloudTemplate;
 
@@ -21,6 +23,7 @@ class UserController extends Controller
 
     public function login()
     {
+
         if (!Cache::has('referer')) {
             Cache::put('referer', request()->server('HTTP_REFERER'));
         }
@@ -31,20 +34,34 @@ class UserController extends Controller
     public function sign(UserLoginRequest $request)
     {
 
-        $res = $this->user->getUserByWhere(['account' => $request->input('account'),'password'=>bcrypt($request->input('password'))]);
-        dd($res);
-        dd($request->all());
+        if (Auth::attempt([
+                              'account'      => $request->input('account'),
+                              'password'     => $request->input('password'),
+                              'is_confirmed' => 1
+                          ])) {
+            flash('登录成功');
+            if (Cache::has('referer')) {
+                return redirect()->to(Cache::get('referer'));
+            }
+            return redirect()->route('home.index');
+        }else{
+            flash('登录失败，请检查用户名和密码是否匹配获邮箱是否激活');
+            return back()->withInput();
+        }
+
     }
 
     /**
      * 注册
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      *
      * @author 马雄飞 <xiongfei.ma@pactera.com>
-     * @date 2018-02-25 21:27:44
+     * @date   2018-02-25 21:27:44
      */
     public function register()
     {
+
         Cache::put('referer', request()->server('HTTP_REFERER'));
 
         return view('home.user.register');
@@ -52,18 +69,19 @@ class UserController extends Controller
 
     /**\
      * 注册用户
+     *
      * @param UserRegisterRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      *
      * @author 马雄飞 <xiongfei.ma@pactera.com>
-     * @date 2018-02-25 19:25:49
+     * @date   2018-02-25 19:25:49
      */
     public function store(UserRegisterRequest $request)
     {
 
         $confirmCode = str_random(48);
-        if ($this->user->registerUser(array_merge($request->all(), ['confirm_code' => $confirmCode,'nickname'=>$request->input(['account'])]))) {
+        if ($this->user->registerUser(array_merge($request->all(), ['confirm_code' => $confirmCode, 'nickname' => $request->input(['account'])]))) {
             $data = [
                 'name' => $request->input('account'),
                 'url'  => route('home.emailActive', ['confirm_code' => $confirmCode]),
@@ -74,7 +92,6 @@ class UserController extends Controller
                 $message->from('ma5694@zhimma.com', '太棒了！收到zhimma.com的第一封邮件啦');
                 $message->to($request->input('email'));
             });
-            die;
             flash('注册成功,请激活邮箱后登录')->success();
 
             return redirect()->route('home.login');
@@ -84,10 +101,11 @@ class UserController extends Controller
 
     /**
      * 激活邮箱
+     *
      * @return \Illuminate\Http\RedirectResponse
      *
      * @author 马雄飞 <xiongfei.ma@pactera.com>
-     * @date 2018年02月25日21:27:17
+     * @date   2018年02月25日21:27:17
      */
     public function active()
     {
@@ -97,26 +115,29 @@ class UserController extends Controller
         )) {
             flash('邮箱验证成功');
             auth()->loginUsingId($result->id);
-            if(Cache::has('referer')){
+            if (Cache::has('referer')) {
                 return redirect()->to(Cache::get('referer'));
             }
         } else {
             flash('邮箱验证失败')->error();
         }
+
         return redirect()->route('home.index');
 
     }
 
     /**
      * 退出登录
+     *
      * @return \Illuminate\Http\RedirectResponse
      *
      * @author 马雄飞 <xiongfei.ma@pactera.com>
-     * @date 2018年02月25日21:29:39
+     * @date   2018年02月25日21:29:39
      */
     public function logout()
     {
         auth()->logout();
+
         return redirect()->route('home.index');
     }
 }
