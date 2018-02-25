@@ -37,17 +37,20 @@
     <header class="nav-type-1 dark-nav">
         @include('home.layout.nav')
     </header>
+    <div class="row">
+        @if(in_array(Route::currentRouteName(),['home.login','home.register']))
+            <div class="col-md-4 col-md-offset-4">
+                @include('flash::message')
+            </div>
+        @else
+            @include('flash::message')
+        @endif
+    </div>
     @yield('carousel')
     <div class="content-wrapper oh">
         <section class="content blog-standard">
             <div class="container relative">
-                @if(in_array(Route::currentRouteName(),['home.login','home.register']))
-                    <div class="col-md-4 col-md-offset-4">
-                        @include('flash::message')
-                    </div>
-                    @else
-                    @include('flash::message')
-                @endif
+
 
                 @yield('content')
             </div> <!-- end container -->

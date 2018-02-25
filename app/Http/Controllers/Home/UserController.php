@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserLoginRequest;
+use App\Http\Requests\UserRegisterRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Naux\Mail\SendCloudTemplate;
-use Overtrue\LaravelSendCloud\SendCloud;
 
 class UserController extends Controller
 {
@@ -21,46 +21,102 @@ class UserController extends Controller
 
     public function login()
     {
-        if(!Cache::has('referer')){
-            Cache::put('referer',request()->server('HTTP_REFERER'));
+        if (!Cache::has('referer')) {
+            Cache::put('referer', request()->server('HTTP_REFERER'));
         }
+
         return view('home.user.login');
     }
 
-    public function sign()
+    public function sign(UserLoginRequest $request)
     {
-        dd(request());
+
+        $res = $this->user->getUserByWhere(['account' => $request->input('account'),'password'=>bcrypt($request->input('password'))]);
+        dd($res);
+        dd($request->all());
     }
 
+    /**
+     * 注册
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018-02-25 21:27:44
+     */
     public function register()
     {
-        Cache::put('referer',request()->server('HTTP_REFERER'));
+        Cache::put('referer', request()->server('HTTP_REFERER'));
+
         return view('home.user.register');
     }
 
-    public function store(UserRequest $request)
+    /**\
+     * 注册用户
+     * @param UserRegisterRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018-02-25 19:25:49
+     */
+    public function store(UserRegisterRequest $request)
     {
 
         $confirmCode = str_random(48);
-        if($this->user->registerUser(array_merge($request->all(),['confirm_code'=>$confirmCode]))){
+        if ($this->user->registerUser(array_merge($request->all(), ['confirm_code' => $confirmCode,'nickname'=>$request->input(['account'])]))) {
             $data = [
                 'name' => $request->input('account'),
-                'url' => route('home.emailActive',['confirm_code'=>$confirmCode]),
+                'url'  => route('home.emailActive', ['confirm_code' => $confirmCode]),
             ];
-            $template = new SendCloudTemplate('zhimma_email_active', $data);
+            $template = new SendCloudTemplate('user_email_validate', $data);
 
-            Mail::raw($template, function ($message) use($request) {
-                $message->from('mma5694@gmail.com', '太棒了！收到zhimma.com的第一封邮件啦');
+            Mail::raw($template, function ($message) use ($request) {
+                $message->from('ma5694@zhimma.com', '太棒了！收到zhimma.com的第一封邮件啦');
                 $message->to($request->input('email'));
             });
-
+            die;
             flash('注册成功,请激活邮箱后登录')->success();
+
             return redirect()->route('home.login');
         }
+        flash('注册出错了')->error();
     }
 
+    /**
+     * 激活邮箱
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018年02月25日21:27:17
+     */
     public function active()
     {
-        dd(request()->all());
+        $confirm_code = request('confirm_code');
+        if ($result = $this->user->updateFiledByWhere(
+            ['confirm_code' => $confirm_code], ['is_confirmed' => 1, 'confirm_code' => str_random(48)]
+        )) {
+            flash('邮箱验证成功');
+            auth()->loginUsingId($result->id);
+            if(Cache::has('referer')){
+                return redirect()->to(Cache::get('referer'));
+            }
+        } else {
+            flash('邮箱验证失败')->error();
+        }
+        return redirect()->route('home.index');
+
+    }
+
+    /**
+     * 退出登录
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018年02月25日21:29:39
+     */
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('home.index');
     }
 }

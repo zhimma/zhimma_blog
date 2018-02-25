@@ -17,6 +17,7 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::get('register','UserController@register')->name('register');
     Route::post('register','UserController@store')->name('registerStore');
     Route::get('email/active','UserController@active')->name('emailActive');
+    Route::get('logout','UserController@logout')->name('logout');
 
     Route::resource('article', 'ArticleController');
     Route::get('contact', 'ContactController@index')->name('contact');
