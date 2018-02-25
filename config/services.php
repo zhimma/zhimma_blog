@@ -34,5 +34,9 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    /*'sendcloud' => [
+        'api_user' => env('SENDCLOUD_API_USER', ''),
+        'api_key'  => env('SENDCLOUD_API_KEY', ''),
+    ],*/
 
 ];

@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'zh_CN',
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,9 +161,12 @@ return [
     Illuminate\Redis\RedisServiceProvider::class,
     Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
     Illuminate\Session\SessionServiceProvider::class,
-    Illuminate\Translation\TranslationServiceProvider::class,
+//    Illuminate\Translation\TranslationServiceProvider::class,
+    Overtrue\LaravelLang\TranslationServiceProvider::class,
     Illuminate\Validation\ValidationServiceProvider::class,
     Illuminate\View\ViewServiceProvider::class,
+
+    Laracasts\Flash\FlashServiceProvider::class,
 
     /*
      * Package Service Providers...
@@ -180,7 +183,8 @@ return [
 
 
     Collective\Html\HtmlServiceProvider::class,
-    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+    Naux\Mail\SendCloudServiceProvider::class,
 
 ],
 
@@ -233,6 +237,7 @@ return [
 
     'Form' => Collective\Html\FormFacade::class,
     'Html' => Collective\Html\HtmlFacade::class,
+    'Flash' => \Laracasts\Flash\Flash::class,
 
 ],
 

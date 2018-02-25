@@ -24,7 +24,6 @@
 </head>
 
 <body class="relative">
-
 <!-- Preloader -->
 <div class="loader-mask">
     <div class="loader">
@@ -39,39 +38,20 @@
         @include('home.layout.nav')
     </header>
     @yield('carousel')
-
     <div class="content-wrapper oh">
         <section class="content blog-standard">
             <div class="container relative">
+                @if(in_array(Route::currentRouteName(),['home.login','home.register']))
+                    <div class="col-md-4 col-md-offset-4">
+                        @include('flash::message')
+                    </div>
+                    @else
+                    @include('flash::message')
+                @endif
+
                 @yield('content')
             </div> <!-- end container -->
         </section> <!-- end content -->
-        <!-- Instagram Feed -->
-
-        {{--<div class="widget-social">--}}
-            {{--<div class="social-icons text-center">--}}
-                {{--<a href="#">--}}
-                    {{--<i class="fa fa-instagram"></i>--}}
-                    {{--<span>instagram</span>--}}
-                {{--</a>--}}
-                {{--<a href="#">--}}
-                    {{--<i class="fa fa-facebook"></i>--}}
-                    {{--<span>facebook</span>--}}
-                {{--</a>--}}
-                {{--<a href="#">--}}
-                    {{--<i class="fa fa-twitter"></i>--}}
-                    {{--<span>twitter</span>--}}
-                {{--</a>--}}
-                {{--<a href="#">--}}
-                    {{--<i class="fa fa-pinterest-p"></i>--}}
-                    {{--<span>pinterest</span>--}}
-                {{--</a>--}}
-                {{--<a href="#">--}}
-                    {{--<i class="fa fa-rss"></i>--}}
-                    {{--<span>rss</span>--}}
-                {{--</a>--}}
-            {{--</div>--}}
-        {{--</div>--}}
         <!-- Footer Type-1 -->
         @if(!in_array(Route::currentRouteName(),['home.login','home.register']))
             @include('home.layout.footer')
@@ -92,6 +72,8 @@
 <script type="text/javascript" src="{{ asset('plugins/share-js/dist/js/social-share.min.js') }}"></script>
 
 <!-- Instafeed -->
-
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 </body>
 </html>

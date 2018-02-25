@@ -41,4 +41,9 @@ trait BaseRepository
     {
         return $this->model->orderBy($sortColumn, $sort)->paginate($number);
     }
+
+    public function store()
+    {
+
+    }
 }
