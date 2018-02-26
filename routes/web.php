@@ -23,5 +23,5 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::get('contact', 'ContactController@index')->name('contact');
     Route::get('about', 'AboutController@index')->name('about');
     Route::resource('tag', 'TagController');
-    Route::get('category/{id}', 'ArticleController@index')->name('category');
+    Route::get('category/{id?}', 'ArticleController@index')->name('category');
 });

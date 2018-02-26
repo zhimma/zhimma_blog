@@ -35,7 +35,7 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($category_id)
+    public function index($category_id = null)
     {
         $where = [];
         if($category_id){
