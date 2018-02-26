@@ -27,7 +27,7 @@
         <ul class="list-dividers">
             @foreach($categories as $category)
                 <li>
-                    <a href="{{ route('home.category.index',['id' => $category->id]) }}">{{ $category->name }}</a><span>({{ $category->articles_count }})</span>
+                    <a href="{{ route('home.category',['id' => $category->id]) }}">{{ $category->name }}</a><span>({{ $category->articles_count }})</span>
                 </li>
             @endforeach
         </ul>

@@ -1,7 +1,4 @@
 @extends('home.layout.app')
-@section('carousel')
-    @include('home.layout.carousel')
-@endsection
 @section('content')
     <div class="row">
     <!-- post content -->

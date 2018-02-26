@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Naux\Mail\SendCloudTemplate;
 
@@ -25,12 +24,20 @@ class UserController extends Controller
     {
 
         if (!Cache::has('referer')) {
-            Cache::put('referer', request()->server('HTTP_REFERER'));
+            Cache::forever('referer', request()->server('HTTP_REFERER'));
         }
-
         return view('home.user.login');
     }
 
+    /**
+     * 登录
+     * @param UserLoginRequest $request
+     *
+     * @return $this|\Illuminate\Http\RedirectResponse
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018年02月26日22:18:45
+     */
     public function sign(UserLoginRequest $request)
     {
 
@@ -41,7 +48,9 @@ class UserController extends Controller
                           ])) {
             flash('登录成功');
             if (Cache::has('referer')) {
-                return redirect()->to(Cache::get('referer'));
+                $redirect = Cache::get('referer');
+                Cache::forget('referer');
+                return redirect()->to($redirect);
             }
             return redirect()->route('home.index');
         }else{

@@ -35,9 +35,13 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category_id)
     {
-        $articles = Article::withCount('comments')->with(['comments','tags','category'])->paginate(5);
+        $where = [];
+        if($category_id){
+            $where = ['category_id'=>$category_id];
+        }
+        $articles = Article::where($where)->withCount('comments')->with(['comments','tags','category'])->paginate(5);
         return view('home/article/index', compact('articles'));
     }
 

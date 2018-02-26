@@ -33,7 +33,7 @@
                         <div class="entry-meta-wrap clearfix">
                             <ul class="entry-meta">
                                 <li class="entry-date">
-                                    <span>分类：<a href="{{ route('home.category.index',['id'=>$article->category->id]) }}">{{ $article->category->name }}</a></span>
+                                    <span>分类：<a href="{{ route('home.category',['id'=>$article->category->id]) }}">{{ $article->category->name }}</a></span>
                                 </li>
                                 <li class="entry-comments">
                                     <span>评论：<a href="{{ route('home.article.show',['id' => $article->id.'#comments']) }}">{{ $article->comments_count }} 回复</a></span>
@@ -122,7 +122,7 @@
                             {!! $commentsPresenter->comments($article->comments->toArray()) !!}
                             </ul>
                         </div> <!--  end comments -->
-                        @if(!auth()->check())
+                        @if(auth()->check())
                             <div class="comment-form mt-60">
                                 <div class="heading-lines mb-30">
                                     <h3 class="heading small">留言评论</h3>
@@ -130,7 +130,7 @@
                                 <form id="form" method="post" action="#">
                                     <div class="row row-16">
                                         {{--<div class="col-md-4">
-                                            <input name="name" id="name" type="text" placeholder="姓名*">
+                        l                    <input name="name" id="name" type="text" placeholder="姓名*">
                                         </div>
                                         <div class="col-md-4">
                                             <input name="mail" id="mail" type="email" placeholder="联系邮箱*">
@@ -147,7 +147,7 @@
                                 </form>
                             </div>
                             @else
-                            <a href="{{--{{ route('home.login') }}--}}" class="btn btn-lg btn-color mt-20">登录并留言评论</a>
+                            <a href="{{ route('home.login') }}" class="btn btn-lg btn-color mt-20">登录并留言评论</a>
                         @endif
                         <!-- Leave a Comment -->
 

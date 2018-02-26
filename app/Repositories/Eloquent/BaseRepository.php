@@ -46,4 +46,9 @@ trait BaseRepository
     {
 
     }
+
+    public function findRecord($id)
+    {
+        return $this->model->find($id);
+    }
 }
