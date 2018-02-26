@@ -3,9 +3,9 @@
         <div class="heading-lines">
             <h3 class="widget-title heading">关于我</h3>
         </div>
-        <img src="img/about_me.jpg" alt="">
+        <img src="{{ asset('home/img/about_me.jpg') }}" alt="">
         <p class="mb-20 mt-30">A personal diary of wanderlust and an overflowing wardrobe. Live with passion.</p>
-        <img src="img/signature.png" alt="">
+        <img src="{{ asset('home/img/signature.png') }}" alt="">
     </div>
 
     <!-- Newsletter -->
@@ -36,7 +36,7 @@
     <!-- Ad banner -->
     <div class="widget custom-ad-banner">
         <a href="#">
-            <img src="img/banner.jpg" alt="">
+            <img src="{{ asset('home/img/banner.jpg') }}" alt="">
         </a>
     </div>
 
@@ -51,7 +51,7 @@
                     <article class="post-small clearfix">
                         <div class="entry-img">
                             <a href="blog-single.html">
-                                <img src="img/recent_1.jpg" alt="">
+                                <img src="{{ asset('home/img/recent_1.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="entry">
@@ -68,7 +68,7 @@
                     <article class="post-small clearfix">
                         <div class="entry-img">
                             <a href="blog-single.html">
-                                <img src="img/recent_2.jpg" alt="">
+                                <img src="{{ asset('home/img/recent_2.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="entry">
@@ -85,7 +85,7 @@
                     <article class="post-small clearfix">
                         <div class="entry-img">
                             <a href="blog-single.html">
-                                <img src="img/recent_3.jpg" alt="">
+                                <img src="{{ asset('home/img/recent_3.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="entry">
@@ -102,7 +102,7 @@
                     <article class="post-small clearfix">
                         <div class="entry-img">
                             <a href="blog-single.html">
-                                <img src="img/recent_4.jpg" alt="">
+                                <img src="{{ asset('home/img/recent_4.jpg') }}" alt="">
                             </a>
                         </div>
                         <div class="entry">
