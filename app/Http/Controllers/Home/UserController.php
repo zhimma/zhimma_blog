@@ -98,7 +98,7 @@ class UserController extends Controller
             $template = new SendCloudTemplate('user_email_validate', $data);
 
             Mail::raw($template, function ($message) use ($request) {
-                $message->from('ma5694@zhimma.com', '太棒了！收到zhimma.com的第一封邮件啦');
+                $message->from('admin@zhimma.com', '太棒了！收到zhimma.com的第一封邮件啦');
                 $message->to($request->input('email'));
             });
             flash('注册成功,请激活邮箱后登录')->success();
