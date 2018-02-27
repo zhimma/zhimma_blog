@@ -1,6 +1,15 @@
 @extends('home.layout.app')
 @section('carousel')
-    @include('home.layout.carousel')
+    <div class="jumbotron">
+        <div class="container">
+            <h1>你好，朋友👬</h1>
+            <p>这是个人博客，基于强大而优雅的Laravel框架开发</p>
+            <p>Laravel是做为个人业余时间学习测试使用</p>
+            <p>准备在此记录个人一些编码过程中遇到的问题</p>
+            <p>和一些好的技术问章，不管是转载还是原创</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">GitHub</a></p>
+        </div>
+    </div>
 @endsection
 @section('content')
     <div class="row">

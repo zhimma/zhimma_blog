@@ -4,22 +4,24 @@
     <title>Home</title>
 
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
 
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400%7COpen+Sans:400,400i,700%7CLibre+Baskerville:400i' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:300,400%7COpen+Sans:400,400i,700%7CLibre+Baskerville:400i'
+          rel='stylesheet'>
 
     <!-- Css -->
-    <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/font-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/sliders.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/spacings.css') }}" />
-    <link rel="stylesheet" href="{{ asset('home/css/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('plugins/share-js/dist/css/share.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/font-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/sliders.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/spacings.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('home/css/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('plugins/share-js/dist/css/share.min.css') }}"/>
 
 </head>
 
@@ -33,28 +35,30 @@
 </div>
 
 <div class="main-wrapper oh">
-
     <header class="nav-type-1 dark-nav">
         @include('home.layout.nav')
     </header>
-    <div class="row">
-        @if(in_array(Route::currentRouteName(),['home.login','home.register']))
-            <div class="col-md-4 col-md-offset-4">
-                @include('flash::message')
-            </div>
-        @else
-            @include('flash::message')
-        @endif
-    </div>
-    @yield('carousel')
+
     <div class="content-wrapper oh">
-        <section class="content blog-standard">
-            <div class="container relative">
-
-
-                @yield('content')
-            </div> <!-- end container -->
-        </section> <!-- end content -->
+        <div class="row">
+            @if(in_array(Route::currentRouteName(),['home.login','home.register']))
+                <div class="col-md-4 col-md-offset-4">
+                    @include('flash::message')
+                </div>
+            @else
+                <div class="col-md-12 col-xs-12">
+                    @include('flash::message')
+                </div>
+            @endif
+        </div>
+        <div class="row">
+            @yield('carousel')
+        </div>
+    </div>
+    <div class="content-wrapper oh">
+        <div class="container relative">
+            @yield('content')
+        </div> <!-- end container -->
         <!-- Footer Type-1 -->
         @if(!in_array(Route::currentRouteName(),['home.login','home.register']))
             @include('home.layout.footer')
@@ -62,7 +66,6 @@
         <div id="back-to-top">
             <a href="#top"><i class="fa fa-angle-up"></i></a>
         </div>
-
     </div> <!-- end content wrapper -->
 </div> <!-- end main wrapper -->
 
