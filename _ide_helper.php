@@ -1,14 +1,13 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.33 on 2018-02-06.
+ * Generated for Laravel 5.5.35 on 2018-02-27 23:31:45.
+ *
+ * This file should not be included in your code, only analyzed by your IDE!
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
  */
-namespace  {
-    exit("This file should not be included, only analyzed by your IDE");
-}
 
 namespace Illuminate\Support\Facades { 
 
@@ -1648,7 +1647,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function user()
@@ -1683,7 +1682,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1747,7 +1746,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1794,7 +1793,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @static 
          */ 
         public static function getLastAttempted()
@@ -1896,7 +1895,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function getUser()
@@ -1942,7 +1941,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if the current user is authenticated.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
@@ -12321,6 +12320,17 @@ namespace Collective\Html {
         }
         
         /**
+         * Get the current model instance on the form builder.
+         *
+         * @return mixed $model
+         * @static 
+         */ 
+        public static function getModel()
+        {
+            return \Collective\Html\FormBuilder::getModel();
+        }
+        
+        /**
          * Close the current form.
          *
          * @return string 
@@ -12571,15 +12581,16 @@ namespace Collective\Html {
          *
          * @param string $name
          * @param array $list
-         * @param string $selected
+         * @param string|bool $selected
          * @param array $selectAttributes
          * @param array $optionsAttributes
+         * @param array $optgroupsAttributes
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */ 
-        public static function select($name, $list = array(), $selected = null, $selectAttributes = array(), $optionsAttributes = array())
+        public static function select($name, $list = array(), $selected = null, $selectAttributes = array(), $optionsAttributes = array(), $optgroupsAttributes = array())
         {
-            return \Collective\Html\FormBuilder::select($name, $list, $selected, $selectAttributes, $optionsAttributes);
+            return \Collective\Html\FormBuilder::select($name, $list, $selected, $selectAttributes, $optionsAttributes, $optgroupsAttributes);
         }
         
         /**
@@ -12636,12 +12647,13 @@ namespace Collective\Html {
          * @param string $value
          * @param string $selected
          * @param array $attributes
+         * @param array $optgroupAttributes
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */ 
-        public static function getSelectOption($display, $value, $selected, $attributes = array())
+        public static function getSelectOption($display, $value, $selected, $attributes = array(), $optgroupAttributes = array())
         {
-            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected, $attributes);
+            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected, $attributes, $optgroupAttributes);
         }
         
         /**
@@ -13297,6 +13309,409 @@ namespace Collective\Html {
         public static function componentCall($method, $parameters)
         {
             return \Collective\Html\HtmlBuilder::componentCall($method, $parameters);
+        }
+         
+    }
+ 
+}
+
+namespace Laracasts\Flash { 
+
+    class Flash {
+        
+        /**
+         * Flash an information message.
+         *
+         * @param string|null $message
+         * @return $this 
+         * @static 
+         */ 
+        public static function info($message = null)
+        {
+            return \Laracasts\Flash\FlashNotifier::info($message);
+        }
+        
+        /**
+         * Flash a success message.
+         *
+         * @param string|null $message
+         * @return $this 
+         * @static 
+         */ 
+        public static function success($message = null)
+        {
+            return \Laracasts\Flash\FlashNotifier::success($message);
+        }
+        
+        /**
+         * Flash an error message.
+         *
+         * @param string|null $message
+         * @return $this 
+         * @static 
+         */ 
+        public static function error($message = null)
+        {
+            return \Laracasts\Flash\FlashNotifier::error($message);
+        }
+        
+        /**
+         * Flash a warning message.
+         *
+         * @param string|null $message
+         * @return $this 
+         * @static 
+         */ 
+        public static function warning($message = null)
+        {
+            return \Laracasts\Flash\FlashNotifier::warning($message);
+        }
+        
+        /**
+         * Flash a general message.
+         *
+         * @param string|null $message
+         * @param string|null $level
+         * @return $this 
+         * @static 
+         */ 
+        public static function message($message = null, $level = null)
+        {
+            return \Laracasts\Flash\FlashNotifier::message($message, $level);
+        }
+        
+        /**
+         * Flash an overlay modal.
+         *
+         * @param string|null $message
+         * @param string $title
+         * @return $this 
+         * @static 
+         */ 
+        public static function overlay($message = null, $title = 'Notice')
+        {
+            return \Laracasts\Flash\FlashNotifier::overlay($message, $title);
+        }
+        
+        /**
+         * Add an "important" flash to the session.
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function important()
+        {
+            return \Laracasts\Flash\FlashNotifier::important();
+        }
+        
+        /**
+         * Clear all registered messages.
+         *
+         * @return $this 
+         * @static 
+         */ 
+        public static function clear()
+        {
+            return \Laracasts\Flash\FlashNotifier::clear();
+        }
+         
+    }
+ 
+}
+
+namespace Overtrue\LaravelSendCloud { 
+
+    class SendCloud {
+        
+        /**
+         * 
+         *
+         * @return \Closure 
+         * @static 
+         */ 
+        public static function authorizationParamsMiddleware()
+        {
+            return \Overtrue\SendCloud\SendCloud::authorizationParamsMiddleware();
+        }
+        
+        /**
+         * 
+         *
+         * @return static 
+         * @static 
+         */ 
+        public static function create()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::create();
+        }
+        
+        /**
+         * GET request.
+         *
+         * @param string $url
+         * @param array $query
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function get($url, $query = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::get($url, $query);
+        }
+        
+        /**
+         * POST request.
+         *
+         * @param string $url
+         * @param array $data
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function post($url, $data = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::post($url, $data);
+        }
+        
+        /**
+         * JSON request.
+         *
+         * @param string $url
+         * @param string|array $data
+         * @param array $query
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function postJson($url, $data = array(), $query = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::postJson($url, $data, $query);
+        }
+        
+        /**
+         * Upload file.
+         *
+         * @param string $url
+         * @param array $files
+         * @param array $form
+         * @param array $query
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function upload($url, $files = array(), $form = array(), $query = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::upload($url, $files, $form, $query);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $uri
+         * @param string $method
+         * @param array $options
+         * @param bool $returnRaw
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function request($uri, $method = 'GET', $options = array(), $returnRaw = false)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::request($uri, $method, $options, $returnRaw);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $url
+         * @param string $method
+         * @param array $options
+         * @return \Overtrue\Http\Responses\Response 
+         * @static 
+         */ 
+        public static function requestRaw($url, $method = 'GET', $options = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::requestRaw($url, $method, $options);
+        }
+        
+        /**
+         * 
+         *
+         * @param \GuzzleHttp\Client $client
+         * @return \Overtrue\Http\Client 
+         * @static 
+         */ 
+        public static function setHttpClient($client)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setHttpClient($client);
+        }
+        
+        /**
+         * Return GuzzleHttp\Client instance.
+         *
+         * @return \GuzzleHttp\Client 
+         * @static 
+         */ 
+        public static function getHttpClient()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getHttpClient();
+        }
+        
+        /**
+         * 
+         *
+         * @return \Overtrue\Http\Config 
+         * @static 
+         */ 
+        public static function getConfig()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getConfig();
+        }
+        
+        /**
+         * 
+         *
+         * @param \Overtrue\Http\Config $config
+         * @return \Overtrue\Http\Client 
+         * @static 
+         */ 
+        public static function setConfig($config)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setConfig($config);
+        }
+        
+        /**
+         * 
+         *
+         * @param \Monolog\Logger $logger
+         * @return $this 
+         * @static 
+         */ 
+        public static function setLogger($logger)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setLogger($logger);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Monolog\Logger 
+         * @static 
+         */ 
+        public static function getLogger()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getLogger();
+        }
+        
+        /**
+         * Set guzzle default settings.
+         *
+         * @param array $defaults
+         * @static 
+         */ 
+        public static function setDefaultOptions($defaults = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setDefaultOptions($defaults);
+        }
+        
+        /**
+         * Return current guzzle default settings.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getDefaultOptions()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getDefaultOptions();
+        }
+        
+        /**
+         * Add a middleware.
+         *
+         * @param callable $middleware
+         * @param null|string $name
+         * @return $this 
+         * @static 
+         */ 
+        public static function pushMiddleware($middleware, $name = null)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::pushMiddleware($middleware, $name);
+        }
+        
+        /**
+         * Return all middlewares.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getMiddlewares()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getMiddlewares();
+        }
+        
+        /**
+         * 
+         *
+         * @param array $middlewares
+         * @return \GuzzleHttp\Client 
+         * @static 
+         */ 
+        public static function setMiddlewares($middlewares)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setMiddlewares($middlewares);
+        }
+        
+        /**
+         * Make a request.
+         *
+         * @param string $uri
+         * @param string $method
+         * @param array $options
+         * @return \Psr\Http\Message\ResponseInterface|\Overtrue\Http\Support\Collection|array|object|string 
+         * @static 
+         */ 
+        public static function performRequest($uri, $method = 'GET', $options = array())
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::performRequest($uri, $method, $options);
+        }
+        
+        /**
+         * 
+         *
+         * @param \GuzzleHttp\HandlerStack $handlerStack
+         * @return $this 
+         * @static 
+         */ 
+        public static function setHandlerStack($handlerStack)
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::setHandlerStack($handlerStack);
+        }
+        
+        /**
+         * Build a handler stack.
+         *
+         * @return \GuzzleHttp\HandlerStack 
+         * @static 
+         */ 
+        public static function getHandlerStack()
+        {
+            //Method inherited from \Overtrue\Http\Client            
+            return \Overtrue\SendCloud\SendCloud::getHandlerStack();
         }
          
     }
@@ -14285,6 +14700,21 @@ namespace  {
             public static function mergeWheres($wheres, $bindings)
             {    
                 \Illuminate\Database\Query\Builder::mergeWheres($wheres, $bindings);
+            }
+         
+            /**
+             * Prepare the value and operator for a where clause.
+             *
+             * @param string $value
+             * @param string $operator
+             * @param bool $useDefault
+             * @return array 
+             * @throws \InvalidArgumentException
+             * @static 
+             */ 
+            public static function prepareValueAndOperator($value, $operator, $useDefault = false)
+            {    
+                return \Illuminate\Database\Query\Builder::prepareValueAndOperator($value, $operator, $useDefault);
             }
          
             /**
@@ -15430,6 +15860,10 @@ namespace  {
     class Form extends \Collective\Html\FormFacade {}
 
     class Html extends \Collective\Html\HtmlFacade {}
+
+    class Flash extends \Laracasts\Flash\Flash {}
+
+    class SendCloud extends \Overtrue\LaravelSendCloud\SendCloud {}
  
 }
 

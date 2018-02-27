@@ -441,6 +441,7 @@ class ComposerStaticInit00407a2305870ffe80d57eee774d9082
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Repositories\\Eloquent\\ArticleRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/ArticleRepository.php',
         'App\\Repositories\\Eloquent\\BaseRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/BaseRepository.php',
+        'App\\Repositories\\Eloquent\\CategoryRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/CategoryRepository.php',
         'App\\Repositories\\Eloquent\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/Eloquent/UserRepository.php',
         'App\\Repositories\\Presenter\\CommentsPresenter' => __DIR__ . '/../..' . '/app/Repositories/Presenter/CommentsPresenter.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

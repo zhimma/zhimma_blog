@@ -43,6 +43,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Repositories\\Eloquent\\ArticleRepository' => $baseDir . '/app/Repositories/Eloquent/ArticleRepository.php',
     'App\\Repositories\\Eloquent\\BaseRepository' => $baseDir . '/app/Repositories/Eloquent/BaseRepository.php',
+    'App\\Repositories\\Eloquent\\CategoryRepository' => $baseDir . '/app/Repositories/Eloquent/CategoryRepository.php',
     'App\\Repositories\\Eloquent\\UserRepository' => $baseDir . '/app/Repositories/Eloquent/UserRepository.php',
     'App\\Repositories\\Presenter\\CommentsPresenter' => $baseDir . '/app/Repositories/Presenter/CommentsPresenter.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
