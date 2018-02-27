@@ -95,7 +95,6 @@ class UserController extends Controller
                 'name' => $request->input('account'),
                 'url'  => route('home.emailActive', ['confirm_code' => $confirmCode]),
             ];
-            $template = new SendCloudTemplate('user_email_validate', $data);
 
             Mail::raw($template, function ($message) use ($request) {
                 $message->from('admin@zhimma.com', '太棒了！收到zhimma.com的第一封邮件啦');

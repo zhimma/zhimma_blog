@@ -1,6 +1,6 @@
 @extends('home.layout.app')
 @section('content')
-        <div class="row" >
+        <div class="row" style="padding-top: 60px">
             @if (count($errors) > 0)
                 <div class="alert alert-danger col-md-4 col-md-offset-4 alert-important">
                     <ul>

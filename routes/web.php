@@ -20,6 +20,7 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::get('logout','UserController@logout')->name('logout');
 
     Route::resource('article', 'ArticleController');
+    Route::post('article/comment','ArticleController@comment')->name('article.comment');
     Route::get('contact', 'ContactController@index')->name('contact');
     Route::get('about', 'AboutController@index')->name('about');
     Route::resource('tag', 'TagController');

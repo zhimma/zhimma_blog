@@ -1,6 +1,6 @@
 @extends('home.layout.app')
 @section('content')
-    <div class="row" >
+    <div class="row" style="padding-top: 60px">
             <form id="login-form" method="post" action="{{ route('home.sign') }}">
                 {{ csrf_field() }}
                 <div class="col-md-4 col-md-offset-4">

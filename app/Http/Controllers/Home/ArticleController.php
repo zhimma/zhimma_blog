@@ -116,4 +116,32 @@ class ArticleController extends Controller
     {
         //
     }
+
+    /**
+     * 文章评论
+     *
+     * @author 马雄飞 <xiongfei.ma@pactera.com>
+     * @date 2018年02月27日22:50:31
+     */
+    public function comment(Request $request)
+    {
+        if(empty($request->input('content'))){
+            $return['msg'] = '输入留言内容';
+            flash('输入回复内容')->info();
+        }else{
+            $article = $this->article->findRecord($request->input('id'));
+            $article->comments()->create(
+                [
+                    'content'=>$request->input('content'),
+                    'user_id' => auth()->id(),
+                    'parent_id' => $request->input('parent_id'),
+
+                ]
+            );
+            flash('回复成功')->success();
+        }
+        return redirect()->back();
+
+    }
+
 }

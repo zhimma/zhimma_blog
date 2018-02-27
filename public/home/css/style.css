@@ -980,7 +980,7 @@ blockquote > span {
 
 .navbar-nav > li > a {
   font-family: "宋体", sans-serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 400;
   letter-spacing: 0.15em;
   color: #000000;
@@ -2431,7 +2431,7 @@ header.transparent .navbar-toggle .icon-bar {
 }
 
 .entry-comments .comment-content {
-  padding-left: 100px;
+  /*padding-left: 100px;*/
   margin-top: 5px;
 }
 

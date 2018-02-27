@@ -17,12 +17,12 @@ class CommentsPresenter
             foreach ($comments as $comment) {
                 $html .= '<li>
                  <div class="comment-body">
-                     <img src="img/comment_1.jpg" class="comment-avatar" alt="">
+                     <img src="' . $comment['user']['avatar'] . '" class="comment-avatar" alt="">
                      <div class="comment-content">
-                         <span class="comment-author">' . $comment['user']['name'] . '</span>
+                         <span class="comment-author">' . $comment['user']['nickname'] . '</span>
                          <span class="comment-date">' . $comment['created_at'] . '</span>
                          <p>' . $comment['content'] . '</p>
-                         <a href="#">回复</a>
+                      <a href="javascript:;" class="reply-comment" data-id="' . $comment['id'] . '">回复</a>
                      </div>
                  </div>';
                 if (!empty($comment['_child'])) {
@@ -43,10 +43,10 @@ class CommentsPresenter
                 $html .= '<div class="comment-body">
                              <img src="img/comment_2.jpg" class="comment-avatar" alt="">
                              <div class="comment-content">
-                                 <span class="comment-author">' . $comment['created_at'] . '</span>
+                                 <span class="comment-author">' . $comment['user']['nickname'] . '</span>
                                  <span class="comment-date">' . $comment['created_at'] . '</span>
                                  <p>' . $comment['content'] . '</p>
-                                 <a href="#">回复'.$comment['id'].'</a>
+                                 <a href="javascript:;" class="reply-comment" data-id="' . $comment['id'] . '">回复</a>
                              </div>
                          </div>';
                 $html .= $this->loop($comment['_child']);
@@ -55,10 +55,10 @@ class CommentsPresenter
                          <div class="comment-body">
                              <img src="img/comment_2.jpg" class="comment-avatar" alt="">
                              <div class="comment-content">
-                                 <span class="comment-author">' . $comment['created_at'] . '</span>
+                                 <span class="comment-author">' . $comment['user']['nickname'] . '</span>
                                  <span class="comment-date">' . $comment['created_at'] . '</span>
                                  <p>' . $comment['content'] . '</p>
-                                 <a href="#">回复'.$comment['id'].'</a>
+                                 <a href="javascript:;" class="reply-comment" data-id="' . $comment['id'] . '">回复</a>
                              </div>
                          </div>
                      ';

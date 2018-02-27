@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('home/css/spacings.css') }}"/>
     <link rel="stylesheet" href="{{ asset('home/css/animate.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('plugins/share-js/dist/css/share.min.css') }}"/>
-
+    @yield('css')
 </head>
 
 <body class="relative">
@@ -81,5 +81,6 @@
 <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 </script>
+@yield('js')
 </body>
 </html>
