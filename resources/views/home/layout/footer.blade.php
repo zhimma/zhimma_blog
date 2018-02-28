@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<footer class="footer footer-type-1 bg-dark" style="padding-bottom: 0px">
+<footer class="footer footer-type-1 bg-dark" style="margin-bottom: 0px">
     <div class="bottom-footer">
         <div class="container">
             <div class="row">

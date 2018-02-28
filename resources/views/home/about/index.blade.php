@@ -1,12 +1,12 @@
 @extends('home.layout.app')
 @section('content')
-    <div class="text-center">
-        <h1 class="heading underline-title uppercase">Hello</h1>
+    <div class="text-center" style="padding-top: 60px">
+        <h1 class="heading underline-title uppercase">关于</h1>
     </div>
     <div class="row row-35">
 
         <div class="col-sm-6">
-            <img src="img/about.jpg" class="img-fw mb-30" alt="">
+            <img src="{{ asset('home/img/about.jpg') }}" class="img-fw mb-30" alt="">
         </div>
         <div class="col-sm-6">
             <p>
@@ -18,7 +18,10 @@
             <p>
                 Quisque condimentum ornare augue, eu tempor ex accumsan iaculis. Duis rutrum ante eget tortor vulputate, ac auctor enim molestie. Nulla tincidunt felis diam, id porta mi porttitor astrout. Vivamus in posuere lorem.
             </p>
-            <img src="img/signature.png" class="mt-30" alt="">
+            <p>
+                Quisque condimentum ornare augue, eu tempor ex accumsan iaculis. Duis rutrum ante eget tortor vulputate, ac auctor enim molestie. Nulla tincidunt felis diam, id porta mi porttitor astrout. Vivamus in posuere lorem.
+            </p>
+            <img src="{{ asset('home/img/signature.png') }}" class="mt-30" alt="">
         </div>
 
     </div> <!-- end row -->

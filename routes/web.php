@@ -22,6 +22,7 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::resource('article', 'ArticleController');
     Route::post('article/comment','ArticleController@comment')->name('article.comment');
     Route::get('contact', 'ContactController@index')->name('contact');
+    Route::post('contact', 'ContactController@store')->name('contact.store');
     Route::get('about', 'AboutController@index')->name('about');
     Route::resource('tag', 'TagController');
     Route::get('category/{id?}', 'ArticleController@index')->name('category');
