@@ -25,10 +25,10 @@
                     {{ csrf_field() }}
                     <div class="row row-16">
                         <div class="col-md-4">
-                            <input name="name" id="name" type="text" placeholder="姓名">
+                            <input name="name" id="name" type="text" placeholder="姓名" value="@if(auth()->check()){{ auth()->user()->nickname }}@endif">
                         </div>
                         <div class="col-md-4">
-                            <input name="email" id="email" type="email" placeholder="邮箱">
+                            <input name="email" id="email" type="email" placeholder="邮箱" value="@if(auth()->check()){{ auth()->user()->email }}@endif">
                         </div>
                         <div class="col-md-4">
                             <input name="subject" id="subject" type="text" placeholder="个人网站">

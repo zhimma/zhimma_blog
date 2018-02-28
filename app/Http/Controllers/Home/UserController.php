@@ -23,6 +23,11 @@ class UserController extends Controller
     public function login()
     {
 
+        if(\auth()->check()){
+            flash('已经是登录状态了')->info();
+            return redirect()->route('home.index');
+        }
+
         if (!Cache::has('referer')) {
             Cache::forever('referer', request()->server('HTTP_REFERER'));
         }
@@ -70,7 +75,10 @@ class UserController extends Controller
      */
     public function register()
     {
-
+        if(\auth()->check()){
+            flash('请退出后注册新用户')->info();
+            return redirect()->route('home.index');
+        }
         Cache::put('referer', request()->server('HTTP_REFERER'));
 
         return view('home.user.register');
