@@ -20,7 +20,7 @@ class ContactController extends Controller
     }
 
     /**
-     * 保存留言 
+     * 保存留言
      * @param ContactRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
