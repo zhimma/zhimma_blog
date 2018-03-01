@@ -31,7 +31,7 @@
                             <input name="email" id="email" type="email" placeholder="邮箱" value="@if(auth()->check()){{ auth()->user()->email }}@endif">
                         </div>
                         <div class="col-md-4">
-                            <input name="subject" id="subject" type="text" placeholder="个人网站">
+                            <input name="domain" id="domain" type="text" placeholder="个人网站">
                         </div>
                         <div class="col-md-12">
                             <textarea name="content" id="content" placeholder="留言给我" rows="8"></textarea>

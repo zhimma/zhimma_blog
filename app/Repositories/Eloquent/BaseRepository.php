@@ -42,9 +42,10 @@ trait BaseRepository
         return $this->model->orderBy($sortColumn, $sort)->paginate($number);
     }
 
-    public function store()
+    public function store($data)
     {
-
+        $model = $this->model->fill($data);
+        return $model->save();
     }
 
     public function findRecord($id)

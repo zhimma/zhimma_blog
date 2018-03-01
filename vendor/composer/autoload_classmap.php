@@ -27,6 +27,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\ContactRequest' => $baseDir . '/app/Http/Requests/ContactRequest.php',
     'App\\Http\\Requests\\UserLoginRequest' => $baseDir . '/app/Http/Requests/UserLoginRequest.php',
     'App\\Http\\Requests\\UserRegisterRequest' => $baseDir . '/app/Http/Requests/UserRegisterRequest.php',
     'App\\Http\\ViewComposers\\CategoryComposer' => $baseDir . '/app/Http/ViewComposers/CategoryComposer.php',
