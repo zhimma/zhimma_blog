@@ -16,6 +16,7 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::post('login','UserController@sign')->name('sign');
     Route::get('register','UserController@register')->name('register');
     Route::post('register','UserController@store')->name('registerStore');
+    Route::get('resetPassword','ResetPasswordController@index')->name('resetPassword');
     Route::get('email/active','UserController@active')->name('emailActive');
     Route::get('logout','UserController@logout')->name('logout');
 

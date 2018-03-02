@@ -12,6 +12,7 @@
 
                 <div class="col-md-4 col-md-offset-4">
                     <input type="submit" class="btn btn-lg btn-color mt-20" value="登录">
+                    <a href="{{ route('home.resetPassword') }}" class="mt-40 pull-right">忘记密码</a>
                 </div>
             </form>
         </div>

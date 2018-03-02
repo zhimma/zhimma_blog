@@ -60,7 +60,7 @@
             @yield('content')
         </div> <!-- end container -->
         <!-- Footer Type-1 -->
-        @if(!in_array(Route::currentRouteName(),['home.login','home.register']))
+        @if(!in_array(Route::currentRouteName(),['home.login','home.register','home.resetPassword']))
             @include('home.layout.footer')
         @endif
         <div id="back-to-top">

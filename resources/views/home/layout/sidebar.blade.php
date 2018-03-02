@@ -4,7 +4,7 @@
             <h3 class="widget-title heading">关于我</h3>
         </div>
         <img src="{{ asset('home/img/about_me.jpg') }}" alt="">
-        <p class="mb-20 mt-30">真在寻找灵感<i class="fa fa-wifi wifi-icon fa-2x"></i></p>
+        <p class="mb-20 mt-30">正在寻找灵感<i class="fa fa-wifi wifi-icon fa-2x"></i></p>
         <img src="{{ asset('home/img/signature.png') }}" alt="">
     </div>
 
