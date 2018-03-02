@@ -68,8 +68,8 @@
                 </div>
             </article> <!-- end large post -->
         @endforeach
-        <div class="row mt-20">
-            <div class="col-md-12 text-center">
+        <div class="row mt-40">
+            <div class="col-md-12 text-center ">
                     {{ $articles->links() }}
             </div>
         </div>

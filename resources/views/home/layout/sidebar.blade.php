@@ -47,74 +47,25 @@
         </div>
         <div class="entry-list w-thumbs">
             <ul class="posts-list list-dividers">
-                <li class="entry-li">
-                    <article class="post-small clearfix">
-                        <div class="entry-img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('home/img/recent_1.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <h3 class="entry-title"><a href="magazine-single-article.html">Best Beaches in Sydney</a></h3>
-                            <ul class="entry-meta list-inline">
-                                <li class="entry-date">
-                                    <a href="#">19 Mar, 2016</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <li class="entry-li">
-                    <article class="post-small clearfix">
-                        <div class="entry-img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('home/img/recent_2.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <h3 class="entry-title"><a href="magazine-single-article.html">First Summer Ice Cream</a></h3>
-                            <ul class="entry-meta list-inline">
-                                <li class="entry-date">
-                                    <a href="#">16 Mar, 2016</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <li class="entry-li">
-                    <article class="post-small clearfix">
-                        <div class="entry-img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('home/img/recent_3.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <h3 class="entry-title"><a href="magazine-single-article.html">Best Hat for Travel</a></h3>
-                            <ul class="entry-meta list-inline">
-                                <li class="entry-date">
-                                    <a href="#">16 Mar, 2016</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
-                <li class="entry-li">
-                    <article class="post-small clearfix">
-                        <div class="entry-img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('home/img/recent_4.jpg') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="entry">
-                            <h3 class="entry-title"><a href="magazine-single-article.html">New Look is Arrived</a></h3>
-                            <ul class="entry-meta list-inline">
-                                <li class="entry-date">
-                                    <a href="#">16 Mar, 2016</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-                </li>
+                @foreach($latestArticles as $article)
+                    <li class="entry-li">
+                        <article class="post-small clearfix">
+                            <div class="entry-img">
+                                <a href="{{ route('home.article.show',['id' => $article->id]) }}">
+                                    <img src="{{ asset('home/img/recent_1.jpg') }}" alt="">
+                                </a>
+                            </div>
+                            <div class="entry">
+                                <h3 class="entry-title"><a href="{{ route('home.article.show',['id' => $article->id]) }}">{{ $article->title }}</a></h3>
+                                <ul class="entry-meta list-inline">
+                                    <li class="entry-date">
+                                        <a href="#">{{ $article->created_at }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

@@ -17,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
         View::composer(
             'home.layout.sidebar', 'App\Http\ViewComposers\CategoryComposer'
         );
+        View::composer(
+            'home.layout.sidebar', 'App\Http\ViewComposers\ArticleComposer'
+        );
     }
 
     /**
