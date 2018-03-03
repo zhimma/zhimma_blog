@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
 
+    <title>zhimma的Blog @yield('title','- 首页') </title>
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
-
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:300,400%7COpen+Sans:400,400i,700%7CLibre+Baskerville:400i'
           rel='stylesheet'>
@@ -60,7 +60,7 @@
             @yield('content')
         </div> <!-- end container -->
         <!-- Footer Type-1 -->
-        @if(!in_array(Route::currentRouteName(),['home.login','home.register','home.resetPassword']))
+        @if(!in_array(Route::currentRouteName(),['home.login','home.register','home.resetPassword','home.validateEmail']))
             @include('home.layout.footer')
         @endif
         <div id="back-to-top">

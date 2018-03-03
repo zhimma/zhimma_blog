@@ -16,7 +16,9 @@ Route::group(['as' => 'home.', 'namespace' => 'Home'], function () {
     Route::post('login','UserController@sign')->name('sign');
     Route::get('register','UserController@register')->name('register');
     Route::post('register','UserController@store')->name('registerStore');
-    Route::get('resetPassword','ResetPasswordController@index')->name('resetPassword');
+    Route::get('resetPassword/validateEmail','ResetPasswordController@validateEmail')->name('validateEmail');
+    Route::get('resetPassword/{confirm_code}','ResetPasswordController@index')->name('resetPassword');
+    Route::post('sendEmail','ResetPasswordController@sendEmail')->name('resetPassword.sendEmail');
     Route::get('email/active','UserController@active')->name('emailActive');
     Route::get('logout','UserController@logout')->name('logout');
 

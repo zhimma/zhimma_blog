@@ -1,4 +1,7 @@
 @extends('home.layout.app')
+@section('title')
+    - 注册
+@stop
 @section('content')
         <div class="row" style="padding-top: 60px">
             @if (count($errors) > 0)
