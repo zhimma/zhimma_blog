@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="_token" content="{{ csrf_token() }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:300,400%7COpen+Sans:400,400i,700%7CLibre+Baskerville:400i'
           rel='stylesheet'>
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('home/css/spacings.css') }}"/>
     <link rel="stylesheet" href="{{ asset('home/css/animate.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('plugins/share-js/dist/css/share.min.css') }}"/>
+
     @yield('css')
 </head>
 
@@ -56,7 +58,7 @@
         </div>
     </div>
     <div class="content-wrapper oh">
-        <div class="container relative">
+        <div class="container relative"  id="app">
             @yield('content')
         </div> <!-- end container -->
         <!-- Footer Type-1 -->
@@ -68,7 +70,7 @@
         </div>
     </div> <!-- end content wrapper -->
 </div> <!-- end main wrapper -->
-
+<script src="./js/app.js"></script>
 <!-- jQuery Scripts -->
 <script type="text/javascript" src="{{ asset('home/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('home/js/bootstrap.min.js') }}"></script>
@@ -76,7 +78,6 @@
 <!--<script type="text/javascript" src="js/twitterFetcher_min.js"></script>-->
 <script type="text/javascript" src="{{ asset('home/js/scripts.js') }}"></script>
 <script type="text/javascript" src="{{ asset('plugins/share-js/dist/js/social-share.min.js') }}"></script>
-
 <!-- Instafeed -->
 <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
