@@ -5,5 +5,4 @@
     @include('home.layout.carousel')
 @endsection
 @section('content')
-    <example-component></example-component>
 @endsection
