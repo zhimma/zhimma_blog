@@ -57,7 +57,9 @@
                             </li>
                         </ul> <!-- end menu -->
                         <ul class="nav navbar-nav navbar-right">
-
+                            <li><a href="https://admin.zhimma.com/#/login">&nbsp;&nbsp;&nbsp;&nbsp;去后台</a></li>
+                        </ul> <!-- end menu -->
+                        <ul class="nav navbar-nav navbar-right">
                             @if(Auth::check())
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nickname }} <span class="caret"></span></a>
@@ -76,6 +78,7 @@
                             @endif
 
                         </ul>
+
                     </div> <!-- end collapse -->
                 </div> <!-- end col -->
 
