@@ -72,3 +72,17 @@ $factory->define(\App\Models\Tag::class, function (Faker $faker) {
         'description'  => $faker->company(),
     ];
 });
+
+$factory->define(App\Models\Admin::class, function (Faker $faker) {
+    $faker = \Faker\Factory::create('zh_CN');
+
+    return [
+        'nickname'           => $faker->name,
+        'account'           => 'zhimma',
+        'avatar'         => $faker->imageUrl(),
+        'email'          => $faker->unique()->safeEmail,
+        'password'       => encrypt('123456'), // secret
+        'remember_token' => str_random(10),
+        'confirm_code'   => 0
+    ];
+});

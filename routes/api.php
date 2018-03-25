@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('api','cors')->post('/login', function (Request $request) {
-    return $request->all();
+Route::group(['namespace' => 'Admin', 'middleware' => ['api', 'cors']], function () {
+    Route::post('/login', 'LoginController@login');
 });
