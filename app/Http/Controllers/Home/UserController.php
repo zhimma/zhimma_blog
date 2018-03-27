@@ -45,7 +45,6 @@ class UserController extends Controller
      */
     public function sign(UserLoginRequest $request)
     {
-
         if (Auth::attempt([
                               'account'      => $request->input('account'),
                               'password'     => $request->input('password'),
