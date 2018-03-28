@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'Admin', 'middleware' => ['api', 'cors']], function () {
+Route::group(['namespace' => 'Admin' ,'middleware' => ['api', 'cors']], function () {
     Route::post('/login', 'LoginController@login');
+    Route::group(['middleware' => ['jwt.refresh']], function () {
+        Route::post('/index','IndexController@index');
+    });
 });
+
+

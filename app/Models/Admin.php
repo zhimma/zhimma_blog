@@ -5,10 +5,12 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class Admin  extends \Illuminate\Foundation\Auth\User implements JWTSubject,Authenticatable
 {
+    use Notifiable;
     protected $fillable = [
         'nickname', 'account', 'avatar','email', 'password', 'confirm_code',
     ];
@@ -30,34 +32,6 @@ class Admin  extends \Illuminate\Foundation\Auth\User implements JWTSubject,Auth
     {
         return [];
     }
-
-    public function getAuthIdentifierName()
-    {
-        return 'id';
-    }
-
-    public function getAuthIdentifier()
-    {
-        // TODO: Implement getAuthIdentifier() method.
-    }
-
-
-
-    public function setRememberToken($value)
-    {
-        // TODO: Implement setRememberToken() method.
-    }
-
-    public function getRememberToken()
-    {
-        // TODO: Implement getRememberToken() method.
-    }
-
-    public function getRememberTokenName()
-    {
-        // TODO: Implement getRememberToken() method.
-    }
-
 
 }
 

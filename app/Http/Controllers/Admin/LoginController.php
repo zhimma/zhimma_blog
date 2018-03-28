@@ -11,27 +11,22 @@ use Tymon\JWTAuth\JWTAuth;
 
 class LoginController extends Controller
 {
-    public function login(Request $request,JWTAuth $JWTAuth)
+    public function login(Request $request, JWTAuth $JWTAuth)
     {
-
-        $credentials = $request->only('account','password');
-        if (Auth::guard('admin')->attempt($credentials)) {
-            $user = Admin::where('account', $credentials['account'])->first();
-            $token = $JWTAuth->fromUser($user);
-        } else {
-            dd(333);
-        }
-
-
+        $credentials = $request->only('account', 'password');
         try {
-            if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+            if (!Auth::guard('admin')->attempt($credentials)) {
+                throw new JWTException('user validate filed', 601);
             }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
-        }
+            $user = Admin::where('account', $credentials['account'])->first();
+            if (!$token = $JWTAuth->fromUser($user)) {
+                throw new JWTException('could_not_create_token', 401);
+            }
 
-        ;
-        return ['user'=> $user->toArray(), 'token' => $token];
+            return $this->success(200, '成功', ['data' => $user->toArray(), 'tokekn' => $token]);
+
+        } catch (JWTException $e) {
+            return $this->error($e->getCode(), $e->getMessage(), null);
+        }
     }
 }
