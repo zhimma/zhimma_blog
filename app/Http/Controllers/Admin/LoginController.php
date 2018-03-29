@@ -23,7 +23,7 @@ class LoginController extends Controller
                 throw new JWTException('could_not_create_token', 401);
             }
 
-            return $this->success(200, '成功', ['data' => $user->toArray(), 'tokekn' => $token]);
+            return $this->success(200, '成功', ['data' => $user->toArray(), 'token' => $token]);
 
         } catch (JWTException $e) {
             return $this->error($e->getCode(), $e->getMessage(), null);
