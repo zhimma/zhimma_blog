@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +15,7 @@ Route::group(['namespace' => 'Admin' ,'middleware' => ['api', 'cors']], function
     Route::post('/login', 'LoginController@login');
     Route::group(['middleware' => ['jwt.refresh']], function () {
         Route::post('/index','IndexController@index');
+        Route::resource('/menu','MenuController');
     });
 });
 
