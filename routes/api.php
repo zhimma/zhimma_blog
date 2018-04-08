@@ -11,12 +11,18 @@
 |
 */
 
-Route::group(['namespace' => 'Admin' ,'middleware' => ['api', 'cors']], function () {
+/*Route::group(['namespace' => 'Admin' ,'middleware' => ['api', 'cors']], function () {
     Route::post('/login', 'LoginController@login');
     Route::group(['middleware' => ['jwt.refresh']], function () {
         Route::post('/index','IndexController@index');
         Route::resource('/menu','MenuController');
     });
-});
+});*/
+$api = app('Dingo\Api\Routing\Router');
 
+$api->version('v1', function ($api) {
+    $api->group(['namespace' => 'App\Controllers\Api'], function ($api) {
+        $api->post('user/login', 'LoginController@login');
+    });
+});
 

@@ -16,7 +16,9 @@
         "naux/sendcloud": "^1.1",
         "overtrue/laravel-lang": "~3.0",
         "overtrue/laravel-sendcloud": "^1.0",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "dev-develop",
+        "dingo/api": "1.0.*@dev"
+
     },
     "require-dev": {
         "filp/whoops": "~2.0",
