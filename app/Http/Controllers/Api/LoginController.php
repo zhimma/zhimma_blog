@@ -11,4 +11,9 @@ class LoginController extends Controller
     {
         return 'login';
     }
+
+    public function index()
+    {
+        return 'index';
+    }
 }

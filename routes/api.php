@@ -19,10 +19,12 @@
     });
 });*/
 $api = app('Dingo\Api\Routing\Router');
-
 $api->version('v1', function ($api) {
-    $api->group(['namespace' => 'App\Controllers\Api'], function ($api) {
-        $api->post('user/login', 'LoginController@login');
+    $api->group(['namespace' => 'App\Http\Controllers\Api'], function ($api) {
+        $api->get('login', 'LoginController@login');
+        $api->group(['middleware' => 'jwt.auth'], function ($api) {
+            $api->get('index', 'LoginController@Index');
+        });
     });
 });
 
